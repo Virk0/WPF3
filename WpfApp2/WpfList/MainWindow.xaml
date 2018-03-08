@@ -19,13 +19,13 @@
                         <!--<ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Completion}"/>-->
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>          
+            </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock HorizontalAlignment="Left" Margin="353,10,0,0" TextWrapping="Wrap" Text="ListBox Selection" VerticalAlignment="Top" Width="134"/>
-        <Button Name="btnShowSelectedItem" Content="Show selected" HorizontalAlignment="Left" Margin="353,31,0,0" VerticalAlignment="Top" Width="134" Click="btnShowSelectedItem_Click"/>
-        <Button Name="btnSelectLast" Content="Select Last" HorizontalAlignment="Left" Margin="353,56,0,0" VerticalAlignment="Top" Width="134" Click="btnSelectLast_Click"/>
-        <Button Name="btnSelectNext" Content="Select next" HorizontalAlignment="Left" Margin="353,81,0,0" VerticalAlignment="Top" Width="134" Click="btnSelectNext_Click"/>
-        <Button Name="btnSelectCSharp" Content="Select C#" HorizontalAlignment="Left" Margin="353,106,0,0" VerticalAlignment="Top" Width="134"/>
-        <Button Name ="btnSelectAll" Content="Select All" HorizontalAlignment="Left" Margin="353,131,0,0" VerticalAlignment="Top" Width="134"/>
+        <!--<TextBlock HorizontalAlignment="Left" Margin="353,10,0,0" TextWrapping="Wrap" Text="ListBox Selection" VerticalAlignment="Top" Width="134"/>-->
+        <Button Name="btnShowSelectedItem" Content="Show selected Age" HorizontalAlignment="Left" Margin="353,31,0,0" VerticalAlignment="Top" Width="134" Click="btnShowSelectedItem_Click"/>
+        <Button Name="btnSelectLast" Content="Select Last" HorizontalAlignment="Left" Margin="425,4,0,0" VerticalAlignment="Top" Width="62" Click="btnSelectLast_Click"/>
+        <Button Name="btnSelectNext" Content="Select next" HorizontalAlignment="Left" Margin="354,4,0,0" VerticalAlignment="Top" Width="62" Click="btnSelectNext_Click"/>
+        <!--<Button Name="btnSelectCSharp" Content="Select C#" HorizontalAlignment="Left" Margin="353,106,0,0" VerticalAlignment="Top" Width="134"/>-->
+        <!--<Button Name ="btnSelectAll" Content="Select All" HorizontalAlignment="Left" Margin="353,131,0,0" VerticalAlignment="Top" Width="134"/>-->
     </Grid>
 </Window>

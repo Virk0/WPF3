@@ -29,24 +29,37 @@ namespace WpfList
             //items.Add(new TodoItem() { Title = "Learn C#", Completion = 80 });
             //items.Add(new TodoItem() { Title = "Go to shop", Completion = 100 });
             //items.Add(new TodoItem() { Title = "Buy stuff", Completion = 10 });
-            List<TodoItem> items = new List<TodoItem>();
-            items.Add(new TodoItem() { Nimi = "Sharleen Coplan" });
-            items.Add(new TodoItem() { Nimi = "Miles Mcgown" });
-            items.Add(new TodoItem() { Nimi = "Sherley Clodfelter" });
-            items.Add(new TodoItem() { Nimi = "Celestina Davenport" });
-            items.Add(new TodoItem() { Nimi = "Celina Whitmore" });
-            items.Add(new TodoItem() { Nimi = "Prudence Gariepy" });
-            items.Add(new TodoItem() { Nimi = "Elva Mower" });
-            items.Add(new TodoItem() { Nimi = "Nerissa Mcelyea" });
-            items.Add(new TodoItem() { Nimi = "Dionna Linquist" });
-            items.Add(new TodoItem() { Nimi = "Milo Sebesta" });
-            items.Add(new TodoItem() { Nimi = "Pricilla Cecere" });
-            items.Add(new TodoItem() { Nimi = "Victoria Giefer" });
-            items.Add(new TodoItem() { Nimi = "Shemika Gotto" });
-            items.Add(new TodoItem() { Nimi = "Lyndsey Kleinschmidt" });
+            //List<TodoItem> items = new List<TodoItem>();
+            //items.Add(new TodoItem() { Nimi = "Sharleen Coplan", Age = 12 });
+            //items.Add(new TodoItem() { Nimi = "Miles Mcgown", Age = 25 });
+            //items.Add(new TodoItem() { Nimi = "Sherley Clodfelter", Age = 56 });
+            //items.Add(new TodoItem() { Nimi = "Celestina Davenport", Age =45 });
+            //items.Add(new TodoItem() { Nimi = "Celina Whitmore", Age =76 });
+            //items.Add(new TodoItem() { Nimi = "Prudence Gariepy", Age =69});
+            //items.Add(new TodoItem() { Nimi = "Elva Mower", Age = 12});
+            //items.Add(new TodoItem() { Nimi = "Nerissa Mcelyea", Age =16});
+            //items.Add(new TodoItem() { Nimi = "Dionna Linquist", Age =15 });
+            //items.Add(new TodoItem() { Nimi = "Milo Sebesta", Age =45});
+            //items.Add(new TodoItem() { Nimi = "Pricilla Cecere", Age =34});
+            //items.Add(new TodoItem() { Nimi = "Victoria Giefer", Age =59});
+            //items.Add(new TodoItem() { Nimi = "Shemika Gotto", Age =89});
+            //items.Add(new TodoItem() { Nimi = "Lyndsey Kleinschmidt", Age =5});
 
 
-            TodoListBox.ItemsSource = items;            
+            //TodoListBox.ItemsSource = items;            
+            string[] names = System.IO.File.ReadAllLines("../../names.txt");
+            List<TodoItem> todo = new List<TodoItem>();
+
+            foreach (string name in names)
+            {
+                TodoItem item = new TodoItem();
+
+                item.Nimi = name;
+
+                todo.Add(item);
+            }
+
+            TodoListBox.ItemsSource = todo;
         }
 
         private void todoListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,9 +72,10 @@ namespace WpfList
 
         private void btnShowSelectedItem_Click(object sender, RoutedEventArgs e)
         {
+            Random rnd = new Random();
             foreach (var item in TodoListBox.SelectedItems)
             {
-                MessageBox.Show((item as TodoItem).Nimi);
+                MessageBox.Show("Name: \"" +(item as TodoItem).Nimi + "\",  Age: "+ rnd.Next(12, 100));
             }
         }
 
@@ -82,14 +96,12 @@ namespace WpfList
 
         //private void btnSelectCSharp_Click(object sender, RoutedEventArgs e)
         //{
-        //    foreach (var item in TodoListBox.Items)
+        //    int nextIndex = 0;
+        //    if ((TodoListBox.SelectedIndex >= 0) && (TodoListBox.SelectedIndex < (TodoListBox.Items.Count - 1)))
         //    {
-        //        if ((item is TodoItem) && ((item as TodoItem).Title.Contains("C#")))
-        //        {
-        //            TodoListBox.SelectedItem = item;
-        //            break;
-        //        }
+        //        nextIndex = TodoListBox.SelectedIndex - 1;
         //    }
+        //    TodoListBox.SelectedIndex = nextIndex;
         //}
 
         private void btnSelectAll_Click(object sender, RoutedEventArgs e)
@@ -107,6 +119,6 @@ namespace WpfList
         //public int Completion { get; set; }
         public string Nimi { get; set; }
         //public string PereN { get; set; }
-        //public int Age { get; set; }
+        public int Age { get; set; }
     }
 }
